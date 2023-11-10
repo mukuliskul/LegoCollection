@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cupcake">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <%- include('partials/navbar', {page: '/about'}) %>
+    <main>
+        <div class="container mx-auto">
+            <div class="hero bg-base-200">
+                <div class="hero-content text-center">
+                  <div class="max-w-md">
+                    <h1 class="text-5xl font-bold">About Me - Mukul Sharma</h1>
+                    <p class="py-6">I am a passionate Lego builder, and making this website took way longer than it should've. It was a slow learning curve for sure.</p>
+                  </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2 pt-4 items-center">
+                <!-- GRID -->
+                <div class="border-2 m-10 p-5">
+                    <!-- CARD -->
+                    <div class="card bg-base-100 shadow-xl">
+                        <figure>
+                            <img class="w-full" src="https://www.lavistamchs.com/wp-content/uploads/2015/03/kanye-west-fan-678x381.jpg" alt="Gears" />
+                        </figure>
+                    </div>
+                </div>
+                <!-- GRID -->
+                <div class="border-2">
+                    <!-- CARD -->
+                    <div class="card bg-base-100 shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title">A little more...</h2>
+                            <p>Continuing about the learning curve, tailwind is definitely really powerful but also a lot to digest in for first time users. I wish to explore tailwind more over this reading week.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
