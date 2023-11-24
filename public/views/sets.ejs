@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cupcake">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <%- include('partials/navbar', { page: '/lego/sets' }) %>
+    <header>
+        <div class="container mx-auto">
+            <div class="hero bg-base-200">
+                <div class="hero-content text-center">
+                <div class="max-w-md">
+                    <h1 class="text-5xl font-bold">Collection</h1>
+                    <p class="py-6">You can browse the entire Collection here. Click a theme to filter the collection by, select from :</p>
+                    <p>
+                        <a href="/lego/sets?theme=Technic" class="btn btn-outline btn-sm mr-2">Technic</a>
+                        <a href="/lego/sets?theme=Classic Town" class="btn btn-outline btn-sm mr-2">Classic Town</a>
+                        <a href="/lego/sets?theme=Books" class="btn btn-outline btn-sm">Books</a>
+                    </p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="p-8">
+        <div class="container mx-auto">
+            <table class="w-full border-collapse border">
+                <thead>
+                    <tr>
+                        <th class="p-4 text-left">Image</th>
+                        <th class="p-4 text-left">Name</th>
+                        <th class="p-4 text-left">Theme</th>
+                        <th class="p-4 text-left">Year</th>
+                        <th class="p-4 text-left">Number of Parts</th>
+                        <th class="p-4 text-left">Details</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white">
+                    <% sets.forEach(function(set) { %>
+                            <tr class="border-t border-b">
+                                <td class="p-4">
+                                    <div class="avatar">
+                                        <div class="w-24 rounded-xl">
+                                            <img src="<%= set.img_url %>" alt="<%= set.name %>" class="object-cover w-full h-full">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="p-4"><%= set.name %></td>
+                                <td class="p-4">
+                                    <a href="/lego/sets?theme=<%= set.Theme.name %>" class="btn btn-accent btn-sm">
+                                        <%= set.Theme.name %>
+                                    </a>
+                                </td>
+                                <td class="p-4"><%= set.year %></td>
+                                <td class="p-4"><%= set.num_parts %></td>
+                                <td class="p-4">
+                                    <a href="/lego/sets/<%= set.set_num %>" class="btn btn-accent btn-sm">
+                                        Details
+                                    </a>
+                                </td>
+                            </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

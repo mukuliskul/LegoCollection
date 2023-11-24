@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cupcake">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lego Collection</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <%- include('partials/navbar', {page: ''}) %>
+    <main>
+        <div class="container mx-auto">
+            <div class="hero bg-base-200">
+                <div class="hero-content text-center">
+                  <div class="max-w-md">
+                    <h1 class="text-5xl font-bold">Hello there</h1>
+                    <p class="py-6">Welcome to Lego Land, where you never let go of your legos</p>
+                    <button class="btn btn-primary"><a href="/lego/sets">Get Started</a></button>
+                  </div>
+                </div>
+            </div>
+            
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 pt-4 items-center">
+                <!-- GRID -->
+                <div class="border-2 m-4 p-4">
+                    <!-- CARD -->
+                    <div class="card bg-base-100 shadow-xl">
+                        <figure>
+                            <img class="w-full" src="https://cdn.rebrickable.com/media/sets/001-1.jpg" alt="Gears" />
+                        </figure>
+                        <div class="card-body">
+                            <h2 class="card-title">Gears</h2>
+                            <p>This set was released in America (USA/CAN) by Samsonite in 1965. It was re-released in 1969 as an educational set (322-4). It was never released in Europe.</p>
+                            <div class="card-actions justify-end">
+                                <button class="btn btn-primary"><a href="/lego/sets/001-1">CheckOut</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- GRID -->
+                <div class="border-2 m-4 p-4">
+                    <!-- CARD -->
+                    <div class="card bg-base-100 shadow-xl">
+                        <figure>
+                            <img class="w-full" src="https://cdn.rebrickable.com/media/sets/0016-1.jpg" alt="Castle Mini Figures" />
+                        </figure>
+                        <div class="card-body">
+                            <h2 class="card-title">Castle Mini Figures</h2>
+                            <p>This set was made for in limited quantities of only One Hundred Thousand units made.</p>
+                            <div class="card-actions justify-end">
+                                <button class="btn btn-primary"><a href="/lego/sets/0016-1">CheckOut</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- GRID -->
+                <div class="border-2 m-4 p-4">
+                    <!-- CARD -->
+                    <div class="card bg-base-100 shadow-xl">
+                        <figure>
+                          <img class="w-full" src="https://cdn.rebrickable.com/media/sets/003-1.jpg" alt="Master Mechanic Set" />
+                        </figure>
+                        <div class="card-body">
+                          <h2 class="card-title">Master Mechanic Set</h2>
+                          <p>This set was released in America (USA/CAN) by Samsonite in 1966. It was never released in Europe.</p>
+                          <div class="card-actions justify-end">
+                            <button class="btn btn-primary"><a href="/lego/sets/003-1">CheckOut</a></button>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+</body>
+</html>
