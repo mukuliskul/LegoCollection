@@ -40,6 +40,7 @@ function initialize(){
     db.on('error', (err) => {
       reject(err);
     });
+    
 
     db.once('open', () => {
       User = db.model("users", userSchema);
