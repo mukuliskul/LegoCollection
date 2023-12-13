@@ -34,7 +34,9 @@
                         <span class="font-bold">Number of Parts: </span> <%= set.num_parts %> <br>
                         <div id="quote"></div>
                         <br>
-                        <a class="btn btn-sm btn-success" href="/lego/editSet/<%= set.set_num %>">Edit Set</a>
+                        <%if(session.user) { %>
+                            <a class="btn btn-sm btn-success" href="/lego/editSet/<%= set.set_num %>">Edit Set</a>
+                        <% } %>
                         <a class="btn btn-primary btn-sm" href="/lego/sets" onclick="history.back(); return false;">RETURN</a>
                     </p>
                 </div>

@@ -62,7 +62,7 @@ const Set = sequelize.define(
 Set.belongsTo(Theme, {foreignKey : 'theme_id'});
 
 //The purpose of this function is to fill the "sets" array (declared above), by adding copies of all the setData objects
-function initalize(){
+function initialize(){
     return new Promise((resolve, reject) => {
         sequelize.sync().then((data) => {
             resolve(data);
@@ -72,7 +72,7 @@ function initalize(){
     })
 };
 
-initalize();
+initialize();
 
 function getAllSets(){
     return new Promise((resolve, reject) => {
@@ -190,4 +190,4 @@ function deleteSet(set_num){
     });
 }
 
-module.exports = {initalize, getAllSets, getSetByNum, getSetsByTheme, addSet, getAllThemes, editSet, deleteSet}; 
+module.exports = {initialize, getAllSets, getSetByNum, getSetsByTheme, addSet, getAllThemes, editSet, deleteSet}; 
