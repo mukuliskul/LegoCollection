@@ -72,7 +72,6 @@ function initialize(){
     })
 };
 
-initialize();
 
 function getAllSets(){
     return new Promise((resolve, reject) => {

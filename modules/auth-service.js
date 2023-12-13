@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 let Schema = mongoose.Schema;
-let dotenv = require('dotenv').config();
+require('dotenv').config();
 const bcrypt = require('bcryptjs');
 
 // Define the schema for the login history as an array of objects
