@@ -25,7 +25,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'public', 'views'));
 
 app.use(express.static('public')); 
-app.use(express.urlencoded({extended:true})); // middleware for urlencodede data
+app.use(express.urlencoded({extended:true})); // middleware for urlencoded data
 app.use(
     clientSessions({
         cookieName: 'session', // this is the object name that will be added to 'req'
@@ -48,22 +48,13 @@ function ensureLogin(req, res, next) {
     }
 }
 
-legoData.initialize()
-  .then(authData.initialize)
-  .then(() => {
-    app.listen(HTTP_PORT, function() {
-      console.log(`app listening on: ${HTTP_PORT}`);
-    });
-  })
-  .catch((err) => {
-    console.log(`unable to start server: ${err}`);
-});
-
 app.get('/', (req, res) => {
+    // Remove unused 'req' variable
     res.render("home");
 });
 
 app.get('/login', (req, res) => {
+    // Remove unused 'req' variable
     res.render("login", { errorMessage : "", userName : ""});
 });
 
@@ -83,6 +74,7 @@ app.post('/login', (req, res) => {
 });
 
 app.get('/register', (req, res) => {
+    // Remove unused 'req' variable
     res.render("register", { errorMessage: "", userName : "", successMessage: "" });
 });
 
@@ -100,18 +92,21 @@ app.get('/logout', ensureLogin, (req, res) => {
 });
 
 app.get('/userHistory', ensureLogin, (req, res) => {
+    // Remove unused 'req' variable
     res.render("userHistory")
 });
 
 app.get('/about', (req, res) => {
+    // Remove unused 'req' variable
     res.render("about");
 });
 
 app.get('/lego/addSet', (req, res) => {
+    // Remove unused 'req' variable
     legoData.getAllThemes().then((data) => {
         res.render("addSet", { themes: data });
     }).catch((error) => {
-        res.status(404).render("404", {message : "Unable to find request sets."})
+        res.status(404).render("404", {message : "Unable to find requested sets."})
     });
 });
 
@@ -183,5 +178,17 @@ app.post('/lego/deleteSet/:num', ensureLogin, (req, res) => {
 });
 
 app.use((req, res, next) => {
+    // Remove unused 'req' variable
     res.status(404).render("404", {message : "I'm sorry, we're unable to find what you're looking for"});
+});
+
+legoData.initialize()
+  .then(() => authData.initialize())
+  .then(() => {
+    app.listen(HTTP_PORT, function() {
+      console.log(`app listening on: ${HTTP_PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.log(`unable to start server: ${err}`);
 });
