@@ -76,29 +76,25 @@ initialize();
 
 function getAllSets(){
     return new Promise((resolve, reject) => {
-        sequelize.sync().then(() => {
-            Set.findAll({include : Theme}).then((data) => {
-                resolve(data);
-            }).catch((err) => {
-                reject(err);
-            });
+        Set.findAll({include : Theme}).then((data) => {
+            resolve(data);
+        }).catch((err) => {
+            reject(err);
         });
     });
 }
 
 function getSetByNum(setNum){
     return new Promise((resolve, reject) => {
-        sequelize.sync().then(() => {
-            Set.findAll({
-                include : Theme,
-                where : {
-                    set_num : setNum,
-                },
-            }).then((data)=>{
-                resolve(data[0]);
-            }).catch((err) =>{
-                reject(err);
-            });
+        Set.findAll({
+            include : Theme,
+            where : {
+                set_num : setNum,
+            },
+        }).then((data)=>{
+            resolve(data[0]);
+        }).catch((err) =>{
+            reject(err);
         });
     });
 };
@@ -106,88 +102,78 @@ function getSetByNum(setNum){
 
 function getSetsByTheme(theme){
     return new Promise((resolve, reject) => {
-        sequelize.sync().then(() => {
-            Set.findAll({
-                include: [Theme],
-                where: { 
-                '$Theme.name$': {
-                [Sequelize.Op.iLike]: `%${theme}%`
-                }
-            }}).then((data) => {
-                resolve(data)
-            }).catch((err) =>{
-                reject('Unable to find requested sets');
-            });
+        Set.findAll({
+            include: [Theme],
+            where: { 
+            '$Theme.name$': {
+            [Sequelize.Op.iLike]: `%${theme}%`
+            }
+        }}).then((data) => {
+            resolve(data)
+        }).catch((err) =>{
+            reject('Unable to find requested sets');
         });
     });
 };      
 
 function addSet(setData){
     return new Promise((resolve,reject) =>{
-        sequelize.sync().then(() => {
-            Set.create({
-                set_num : setData.set_num,
-                name : setData.name,
-                year : setData.year,
-                num_parts : setData.num_parts,
-                theme_id : setData.theme_id,
-                img_url : setData.img_url,
-            }).then(()=> {
-                resolve();
-            }).catch((err) => {
-                reject(err.errors[0].message);
-            });
+        Set.create({
+            set_num : setData.set_num,
+            name : setData.name,
+            year : setData.year,
+            num_parts : setData.num_parts,
+            theme_id : setData.theme_id,
+            img_url : setData.img_url,
+        }).then(()=> {
+            resolve();
+        }).catch((err) => {
+            reject(err.errors[0].message);
         });
     })
 }
 
 function getAllThemes(){
     return new Promise((resolve,reject) =>{
-        sequelize.sync().then(() => {
-            Theme.findAll().then((data) => {
-                resolve(data);
-            }).catch((err) => {
-                reject(err);
-            });
+        Theme.findAll().then((data) => {
+            resolve(data);
+        }).catch((err) => {
+            reject(err);
         });
     });
 }
 
 function editSet(set_num, setData){
     return new Promise((resolve, reject) => {
-        sequelize.sync().then(() => {
-            Set.update(
-                {
-                    name : setData.name,
-                    year : setData.year,
-                    num_parts : setData.num_parts,
-                    theme_id : setData.theme_id,
-                    img_url : setData.img_url,
-                },
-                {
-                    where : { set_num : set_num },
-                }
-            ).then(() => {
-                resolve();
-            }).catch((err) => {
-                reject(err.errors[0].message);
-            });
+        Set.update(
+            {
+                name : setData.name,
+                year : setData.year,
+                num_parts : setData.num_parts,
+                theme_id : setData.theme_id,
+                img_url : setData.img_url,
+            },
+            {
+                where : { set_num : set_num },
+            }
+        ).then(() => {
+            resolve();
+        }).catch((err) => {
+            reject(err.errors[0].message);
         });
     });
 };
 
 function deleteSet(set_num){
     return new Promise((resolve, reject) => {
-        sequelize.sync().then(() => {
-            Set.destroy({
-                where : { set_num : set_num },
-            }).then(() => {
-                resolve();
-            }).catch((err) => {
-                reject(err.errors[0].message);
-            });
+        Set.destroy({
+            where : { set_num : set_num },
+        }).then(() => {
+            resolve();
+        }).catch((err) => {
+            reject(err.errors[0].message);
         });
     });
 }
 
-module.exports = {initialize, getAllSets, getSetByNum, getSetsByTheme, addSet, getAllThemes, editSet, deleteSet}; 
+module.exports = {initialize, getAllSets, getSetByNum, getSetsByTheme, addSet, getAllThemes, editSet, deleteSet};

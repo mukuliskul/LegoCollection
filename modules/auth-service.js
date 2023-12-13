@@ -39,12 +39,12 @@ function initialize(){
     let db = mongoose.createConnection(process.env.MONGODB);
     db.on('error', (err) => {
       reject(err);
-    })
+    });
 
     db.once('open', () => {
       User = db.model("users", userSchema);
       resolve();
-    })
+    });
   });
 }
 
