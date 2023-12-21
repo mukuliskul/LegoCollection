@@ -1,14 +1,3 @@
-/********************************************************************************
-*  WEB322 – Assignment 03
-* 
-*  I declare that this assignment is my own work in accordance with Seneca's
-*  Academic Integrity Policy:
-* 
-*  https://www.senecacollege.ca/about/policies/academic-integrity-policy.html
-* 
-*  Name: Mukul Sharma Student ID: 112141221 Date: 22 September 2023
-*
-********************************************************************************/
 require('dotenv').config();
 const Sequelize = require('sequelize');
 

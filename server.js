@@ -1,18 +1,3 @@
-/********************************************************************************
-*  WEB322 – Assignment 06
-* 
-*  I declare that this assignment is my own work in accordance with Seneca's
-*  Academic Integrity Policy:
-* 
-*  https://www.senecacollege.ca/about/policies/academic-integrity-policy.html
-* 
-*  Name: Mukul Sharma Student ID: 112141221 Date: 12 December 2023
-*
-*  Published URL: https://legocollection.cyclic.app
-*
-********************************************************************************/
-
-
 const legoData = require("./modules/legoSets");
 const authData = require('./modules/auth-service');
 const express =  require('express');
