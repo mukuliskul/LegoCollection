@@ -56,3 +56,7 @@ Once the application is running, navigate to `http://localhost:8080` (or the con
 ## Contributing
 
 If you have improvements or bug fixes, feel free to fork the repository and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
